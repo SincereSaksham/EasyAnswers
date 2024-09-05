@@ -20,7 +20,8 @@ try:
     for question in question_answer:
         question_list.append(question.find(class_="M7eMe").text)  #scrarping the qeustion done 
         try:
-            answer_list.append(question.find_all(class_= "aDTYNe snByac OvPDhc OIC90c").get_text())  #this line is not working, cant scrape the answers after scraping the question block div.
+            temporary_list = [quest.text for quest in question.find_all(class_= "aDTYNe snByac OvPDhc OIC90c")]
+            answer_list.append(temporary_list)  
         except:
             answer_list.append([""])
 except:
